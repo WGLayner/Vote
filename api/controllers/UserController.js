@@ -5,6 +5,8 @@
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
 
+var crypto = require('crypto');
+
 module.exports = {
 
   index: function(req, res){
@@ -13,12 +15,12 @@ module.exports = {
       User.find(function(err, founds){
          if (err) return next(err);
          res.view({
-           users: users
+           users: founds
          });
        });
     }
     else{
-      var rid='5';
+      var rid=crypto.randomBytes(Math.ceil(5)).toString('hex').substring(0, 10);
       var user_obj = {};
       user_obj.from = rid;
       User.create(user_obj, function(err, created){

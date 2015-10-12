@@ -1,0 +1,23 @@
+<div class="container">
+    <form class="form-horizontal">
+        <div class="form-group">
+          <div class="col-xs-10">
+            <H3>User list</H3>
+          </div>
+        </div>
+    </form>
+
+    <table class='table'>
+        <tr>
+            <th>ID</th>
+            <th>From</th>
+        </tr>
+
+        <% _.each(users, function(user) { %>
+        <tr data-id="<%= user.id %>" data-model="user">
+            <td><%= user.id %></td>
+            <td><%= user.from %></td>
+        </tr>
+        <% }) %>
+    </table>
+</div>

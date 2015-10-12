@@ -1,0 +1,41 @@
+<form action="/vote/create" class="form-horizontal">
+  <h3>Create a vote</h3>
+  
+  <fieldset>
+  
+  <div class="form-group">
+  <input type="button" value="1" class="form-control btn btn-success">
+  </div>
+
+  <div class="form-group">
+  <input type="button" value="2" class="form-control btn btn-success">
+  </div>
+
+  <div class="form-group">
+  <input type="button" value="3" class="form-control btn btn-success">
+  </div>
+
+  <div class="form-group">
+  <input type="button" value="4" class="form-control btn btn-success">
+  </div>
+
+  <input id="question" type="hidden" name="question" >
+
+
+  <input type="submit" value="Create" class="form-control btn btn-success">  
+
+  </fieldset>
+
+</form>
+
+<script type="text/javascript">
+$(document).ready(function(){
+  $('button').click(function(event){
+
+    $('#question').value = this.value;
+    alert(this.value);
+
+  });
+});
+
+</script>
