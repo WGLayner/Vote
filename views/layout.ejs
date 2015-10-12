@@ -27,7 +27,7 @@
             + Import stylesheets from other directories
             + Use a different or additional preprocessor, like SASS, SCSS or Stylus
     -->
-
+    <link rel="stylesheet" href="/vender/bootstrap/dist/css/bootstrap.min.css">
     <!--STYLES-->
     <link rel="stylesheet" href="/styles/importer.css">
     <!--STYLES END-->
@@ -86,9 +86,21 @@
           + Use a different preprocessor, like TypeScript
 
     -->
-
+    <script src="/vender/jquery/dist/jquery.min.js"></script>
+    <script src="/vender/bootstrap/dist/js/bootstrap.min.js"></script>
     <!--SCRIPTS-->
-    <script src="/js/dependencies/sails.io.js"></script>
+    
     <!--SCRIPTS END-->
+    <script type="text/javascript">
+    $(document).ready(function(){
+      $('input.guest').click(function(event){
+
+        $('#choice').val(this.value);
+        alert(this.value);
+
+      });
+    });
+
+    </script>
   </body>
 </html>

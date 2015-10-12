@@ -5,9 +5,14 @@
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
 
+var question_id = 0;
 module.exports = {
+
   new: function(req, res){
-    res.view();
+    question_id++;
+    res.view({
+           question_id: question_id
+         });
   },
 
   create: function(req, res, next) {
