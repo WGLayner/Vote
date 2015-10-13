@@ -10,14 +10,22 @@
     <table class='table'>
         <tr>
             <th>ID</th>
-            <th>From</th>
+            <th>RandomID</th>
         </tr>
 
         <% _.each(users, function(user) { %>
         <tr data-id="<%= user.id %>" data-model="user">
             <td><%= user.id %></td>
-            <td><%= user.from %></td>
+            <td><%= user.randomid %></td>
         </tr>
         <% }) %>
     </table>
+
+    <form class="form-horizontal">
+        <div class="form-group">
+          <div class="col-xs-10">
+            <a href="/vote/new" class="btn btn-danger">进入投票</a>
+          </div>
+        </div>
+    </form>
 </div>

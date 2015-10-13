@@ -94,11 +94,31 @@
     <script type="text/javascript">
     $(document).ready(function(){
       $('input.guest').click(function(event){
+        var guest_name = this.value;
+        alert(guest_name[0]);
 
-        $('#choice').val(this.value);
-        alert(this.value);
+        $('#choice').val(guest_name[0]);
 
       });
+
+      var allowvote = function(){
+        $.get('/vote/getflag')
+        .done(function(data){
+          var question_flag = data.flag;
+          var question_id = data.question_id;
+          $('#question').val(question_id);
+          $('#label_question_id').html(question_id);
+          if(question_flag==='close'){
+            $('#submit').addClass('disabled');
+          }
+          else{
+            $('#submit').removeClass('disabled');
+          }
+          setTimeout(allowvote, 1000);
+        });
+      };
+
+      setTimeout(allowvote, 1000);
     });
 
     </script>

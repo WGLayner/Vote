@@ -1,29 +1,31 @@
 <form action="/vote/create" class="form-horizontal">
-  <h3>Create a vote</h3>
-  
+  <h3>请给嘉宾投上你宝贵的一票 </h3>
+  <label>当前问题:</label><label id="label_question_id"><%= question_id%></label>
+
   <fieldset>
   
   <div class="form-group">
-  <input type="button" value="1" class="form-control btn btn-success guest">
+  <input type="button" value="1号嘉宾" class="form-control btn btn-success guest">
   </div>
 
   <div class="form-group">
-  <input type="button" value="2" class="form-control btn btn-success guest">
+  <input type="button" value="2号嘉宾" class="form-control btn btn-success guest">
   </div>
 
   <div class="form-group">
-  <input type="button" value="3" class="form-control btn btn-success guest">
+  <input type="button" value="3号嘉宾" class="form-control btn btn-success guest">
   </div>
 
   <div class="form-group">
-  <input type="button" value="4" class="form-control btn btn-success guest">
+  <input type="button" value="4号嘉宾" class="form-control btn btn-success guest">
   </div>
 
   <input id="question" type="hidden" name="question" value= <%= question_id %> >
-  <input id="choice" type="hidden" name="choice" >
+  <input id="choice" type="hidden" name="choice" value=<%=choice%> >
+  <input id="userid" type="hidden" name="user" value=<%=user%> >
 
 
-  <input type="submit" value="Create" class="form-control btn btn-success">  
+  <input id="submit" type="submit" value="Create" class="form-control btn btn-success">  
 
   </fieldset>
 

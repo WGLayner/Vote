@@ -15,8 +15,8 @@ module.exports = {
       type: 'integer',
     },
     user: {
-      model: 'User' 
-    },
+      type: 'string',
+    }
   }
 };
 

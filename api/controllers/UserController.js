@@ -22,7 +22,7 @@ module.exports = {
     else{
       var rid=crypto.randomBytes(Math.ceil(5)).toString('hex').substring(0, 10);
       var user_obj = {};
-      user_obj.from = rid;
+      user_obj.randomid = rid;
       User.create(user_obj, function(err, created){
        console.log('user created successfully');
        req.session.user = created; 
