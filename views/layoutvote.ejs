@@ -91,6 +91,61 @@
     <!--SCRIPTS-->
     
     <!--SCRIPTS END-->
+    <script type="text/javascript">
+    $(document).ready(function(){
+
+      $('input.guest').css('background-color','#449d44');
+      var btn_index = <%=choice%>;
+      var btn_id='#btn'+btn_index;
+      $(btn_id).css('background-color','yellow');
+
+
+      $('input.guest').click(function(event){
+        var guest_name = this.value;
+
+        $('#choice').val(guest_name[0]);
+        $('input.guest').css('background-color','#449d44');
+        $(this).css('background-color','yellow');
+
+      });
+
+      // $('input.guest').mouseover(function(event){
+        
+      //   $(this).css('background-color','red');
+
+      // });
+
+      // $('input.guest').mouseleave(function(event){
+        
+      //   $(this).css('background-color','green');
+
+      // });
+
+      var allowvote = function(){
+        $.get('/vote/getflag')
+        .done(function(data){
+          var question_flag = data.flag;
+          var question_id = data.question_id;
+          if(question_id!==$('#question').val()){
+            $('input.guest').css('background-color','#449d44');
+            $('#label_message').html('欢迎参与投票');
+          }
+          $('#question').val(question_id);
+          $('#label_question_id').html(question_id);
+          if(question_flag==='close'){
+            $('#submit').addClass('disabled');
+          }
+          else{
+            $('#submit').removeClass('disabled');
+          }
+          setTimeout(allowvote, 1000);
+        });
+      };
+
+      setTimeout(allowvote, 1000);
+    });
+
+    </script>
 
   </body>
 </html>
