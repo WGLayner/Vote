@@ -15,7 +15,8 @@ module.exports = {
       res.view({
            question_id: Question_id,
            choice: Invalid_choice,
-           user: req.session.user.randomid
+           user: req.session.user.randomid,
+           message: '欢迎参与投票'
          });
     }
     else{
@@ -43,7 +44,8 @@ module.exports = {
               res.view('vote/new', {
               question_id: question_id,
               choice: req.param('choice'),
-              user: req.session.user.randomid
+              user: req.session.user.randomid,
+              message: '谢谢参与，投票成功'
               });
             }
             else{
@@ -62,7 +64,8 @@ module.exports = {
               res.view('vote/new', {
               question_id: question_id,
               choice: req.param('choice'),
-              user: req.session.user.randomid
+              user: req.session.user.randomid,
+              message: '谢谢参与，重新投票成功'
               });
           }
           else{
