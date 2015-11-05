@@ -2,6 +2,14 @@
     <form class="form-horizontal">
         <div class="form-group">
           <div class="col-xs-10">
+            <H3>Your user ID is: <%= user %>, thank you for your participation</H3>
+          </div>
+        </div>
+    </form>
+
+    <form class="form-horizontal">
+        <div class="form-group">
+          <div class="col-xs-10">
             <H3>User list</H3>
           </div>
         </div>
@@ -10,7 +18,7 @@
     <table class='table'>
         <tr>
             <th>ID</th>
-            <th>RandomID</th>
+            <th>UserID</th>
         </tr>
 
         <% _.each(users, function(user) { %>

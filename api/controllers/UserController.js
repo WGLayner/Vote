@@ -15,7 +15,8 @@ module.exports = {
       User.find(function(err, founds){
          if (err) return next(err);
          res.view({
-           users: founds
+           users: founds,
+           user: req.session.user.randomid
          });
        });
     }
@@ -29,7 +30,8 @@ module.exports = {
        User.find(function(err, founds){
          if (err) return next(err);
          res.view({
-           users:founds 
+           users:founds,
+           user: rid 
          });
        });
       });
