@@ -94,6 +94,17 @@ module.exports = {
 
   },
 
+  initdatabase: function(req, res){
+    User.destroy().exec(function(err){
+      console.log('User table is empty');
+    });
+    Vote.destroy().exec(function(err){
+      console.log('Vote table is empty');
+    });
+
+    return res.ok();
+  },
+
   getreport: function(req, res){
     var question_index = req.param('id');
     var vote_num_1, vote_num_2, vote_num_3, vote_num_4;
