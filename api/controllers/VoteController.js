@@ -42,11 +42,12 @@ module.exports = {
                 return res.redirect('/vote/new');
             }
             if(req.session.user){
+              var msg = '谢谢参与，票已经成功投给' + choice +'号嘉宾'; 
               res.view('vote/new', {
               question_id: question_id,
               choice: req.param('choice'),
               user: req.session.user.randomid,
-              message: '谢谢参与，投票成功',
+              message: msg,
               layout: 'layoutvote'
               });
             }
@@ -63,11 +64,12 @@ module.exports = {
             return res.badRequest();
           }
           if(req.session.user){
+              var msg = '谢谢参与，重新投票成功, 票已成功投给'+choice+'号嘉宾'; 
               res.view('vote/new', {
               question_id: question_id,
               choice: req.param('choice'),
               user: req.session.user.randomid,
-              message: '谢谢参与，重新投票成功',
+              message: msg,
               layout: 'layoutvote'
               });
           }
